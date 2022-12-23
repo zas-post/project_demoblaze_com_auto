@@ -39,7 +39,8 @@ class RegistrationPage(BaseClass):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.password_locator)))
 
     def get_button_sign_up(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_sign_up)))
+        # return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_sign_up)))
+        return WebDriverWait(self.driver, 30).until(EC.alert_is_present).accept(self.button_sign_up)
 
 
     # Actions
