@@ -9,8 +9,8 @@ class LoginPage(BaseClass):
 
     url = 'https://www.demoblaze.com/'
 
-    user_name = "alex852"
-    password = "qw12!!"
+    user_name = "222"
+    password = "222"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -19,8 +19,8 @@ class LoginPage(BaseClass):
 
     # Locators
     link_log_in = "//a[@id='login2']"
-    login_user_name_locator = "//input[@id='loginusername']"
-    login_password_locator = "//input[@id='loginpassword']"
+    user_name_locator = "//input[@id='loginusername']"
+    password_locator = "//input[@id='loginpassword']"
     button_log_in = "//*[@id='logInModal']/div/div/div[3]/button[2]"
     main_word = "//a[@id='nameofuser']"
 
@@ -29,15 +29,15 @@ class LoginPage(BaseClass):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_log_in)))
 
     def get_login_user_name(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_user_name_locator)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.user_name_locator)))
 
     def get_login_password(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_password_locator)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.password_locator)))
 
     def get_button_log_in(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.button_log_in)))
 
-    def get_main_word(self):
+    def get_current_login(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.main_word)))
 
     # Actions
@@ -54,7 +54,7 @@ class LoginPage(BaseClass):
         print("Input Password")
 
     def click_button_sign_up(self, button_log_in):
-        self.get_button_log_in().send_keys()
+        self.get_button_log_in().click()
         print(f"Click Button Log In")
 
     # Methods
@@ -66,7 +66,7 @@ class LoginPage(BaseClass):
         self.input_user_name(self.user_name)
         self.input_password(self.password)
         self.click_button_sign_up(self.button_log_in)
-        self.assert_word(self.get_main_word(), "Welcome alex852")
+        self.assert_login(self.get_current_login(),"Welcome 222")
 
         # alert = driver.switch_to_alert()
         # alert.send_keys(Keys.ESCAPE)

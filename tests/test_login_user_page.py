@@ -5,7 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from pages.login_user_page import LoginPage
-from pages.registration_user_page import RegistrationPage
+from pages.main_page import MainPage
 
 
 def test_login_user():
@@ -20,6 +20,8 @@ def test_login_user():
 
     login = LoginPage(driver)
     login.authorization()
+    mp = MainPage(driver)
+    mp.select_proucts()
 
 
     # select_product = WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")))
@@ -37,8 +39,8 @@ def test_login_user():
     # print("Test Success!!! ---> Your Cart")
 
     print("--- Finish Test ---")
-    time.sleep(5)
-    driver.close()
+    # time.sleep(5)
+    # driver.close()
 
 # WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH,"//button[@id='visibleAfter']")))
 
