@@ -7,8 +7,8 @@ from base.base_class import BaseClass
 
 class MainPage(BaseClass):
 
-    user_name = "222"
-    password = "222"
+    # user_name = "222"
+    # password = "222"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -40,13 +40,13 @@ class MainPage(BaseClass):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_monitor)))
 
     def get_select_product_1(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.product_1)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_1)))
 
     def get_select_product_2(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.product_2)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_2)))
 
     def get_select_product_3(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.product_3)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_3)))
 
     def get_add_to_cart_product_1(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.add_to_cart_product_1)))
