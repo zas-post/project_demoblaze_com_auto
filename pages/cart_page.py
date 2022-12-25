@@ -13,8 +13,8 @@ class CartPage(BaseClass):
     country = "RU"
     city = "Moscow"
     credit_card = "2025234165517564"
-    month_m = "Januar"
-    year_y = "2030"
+    mmonth = "Januar"
+    yyear = "2030"
 
 
     def __init__(self, driver):
@@ -81,13 +81,13 @@ class CartPage(BaseClass):
         self.get_credit_card_locator().send_keys(credit_card)
         print(f"Input Credit Card = {credit_card}")
 
-    def input_month(self,month_m):
-        self.get_month_locator().send_keys(month_m)
-        print(f"Input Month = {month_m}")
+    def input_month(self,mmonth):
+        self.get_month_locator().send_keys(mmonth)
+        print(f"Input Month = {mmonth}")
 
-    def input_year(self,year_y):
-        self.get_year_locator().send_keys(year_y)
-        print(f"Input Year = {year_y}")
+    def input_year(self,yyear):
+        self.get_year_locator().send_keys(yyear)
+        print(f"Input Year = {yyear}")
 
     def click_btn_purchase(self):
         self.get_btn_purchase().click()
@@ -106,8 +106,8 @@ class CartPage(BaseClass):
         self.input_country(self.country)
         self.input_city(self.city)
         self.input_credit_card(self.credit_card)
-        self.input_month(self.month_m)
-        self.input_year(self.year_y)
+        self.input_month(self.mmonth)
+        self.input_year(self.yyear)
         self.click_btn_purchase()
 
         time.sleep(5)
