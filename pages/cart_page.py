@@ -81,13 +81,13 @@ class CartPage(BaseClass):
         self.get_credit_card_locator().send_keys(credit_card)
         print(f"Input Credit Card = {credit_card}")
 
-    def input_month(self, month):
-        self.get_month_locator().send_keys(month)
-        print(f"Input Month = {month}")
+    def input_month(self,month_m):
+        self.get_month_locator().send_keys(month_m)
+        print(f"Input Month = {month_m}")
 
-    def input_year(self, year):
-        self.get_year_locator().send_keys(year)
-        print(f"Input Year = {year}")
+    def input_year(self,year_y):
+        self.get_year_locator().send_keys(year_y)
+        print(f"Input Year = {year_y}")
 
     def click_btn_purchase(self):
         self.get_btn_purchase().click()
