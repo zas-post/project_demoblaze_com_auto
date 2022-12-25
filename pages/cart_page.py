@@ -9,6 +9,13 @@ from base.base_class import BaseClass
 
 class CartPage(BaseClass):
 
+    name = "Alexander"
+    country = "RU"
+    city = "Moscow"
+    credit_card = "2025234165517564"
+    month_m = "Januar"
+    year_y = "2030"
+
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -16,119 +23,93 @@ class CartPage(BaseClass):
 
 
     # Locators
-    link_navbar = "//a[@class='navbar-brand']"
-    link_cart = "//a[@id='cartur']"
+    btn_place_order = "//button[@class='btn btn-success']"
+    btn_purchase = "//button[@class='btn btn-primary']"
 
-    link_phone = "//a[contains( text(),'Phones')]"
-    link_laptops = "//a[contains(text(),'Laptops')]"
-    link_monitor = "//a[contains( text(),'Monitors')]"
-
-    select_product_1 = "//a[contains( text(),'Sony vaio i5')]"
-    select_product_2 = "//a[contains( text(),'MacBook Pro')]"
-    select_product_3 ="//a[contains( text(),'2017 Dell 15.6 Inch')]"
-
-    add_to_cart_product_1 = "//a[@onclick='addToCart(8)']"
-    add_to_cart_product_2 = "//a[@onclick='addToCart(15)']"
-    add_to_cart_product_3 = "//a[@onclick='addToCart(13)']"
+    name_locator = "//input[@id='name']"
+    country_locator = "//input[@id='country']"
+    city_locator = "//input[@id='city']"
+    credit_card_locator = "//input[@id='card']"
+    month_locator = "//input[@id='month']"
+    year_locator = "//input[@id='year']"
 
 
     # Getter
 
-    def get_link_navbar(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_navbar)))
+    def get_btn_place_order(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.btn_place_order)))
 
-    def get_link_cart(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_cart)))
+    def get_name_locator(self):
+        return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.name_locator)))
 
-    def get_link_phone(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_phone)))
+    def get_country_locator(self):
+        return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.country_locator)))
 
-    def get_link_laptops(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_laptops)))
+    def get_city_locator(self):
+        return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.city_locator)))
 
-    def get_link_monitor(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_monitor)))
+    def get_credit_card_locator(self):
+        return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.credit_card_locator)))
 
-    def get_select_product_1(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_1)))
+    def get_month_locator(self):
+        return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.get_month_locator())))
 
-    def get_select_product_2(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_2)))
+    def get_year_locator(self):
+        return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.year_locator)))
 
-    def get_select_product_3(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_3)))
-
-    def get_add_to_cart_product_1(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_1)))
-
-    def get_add_to_cart_product_2(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_2)))
-
-    def get_add_to_cart_product_3(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_3)))
-
+    def get_btn_purchase(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.btn_purchase)))
 
     # Actions
-    def click_link_navbar(self):
-        self.get_link_navbar().click()
-        print("Click Link Navbar Brand")
+    def click_btn_place_order(self):
+        self.get_btn_place_order().click()
+        print("Click Button Place Order")
 
-    def click_link_cart(self):
-        self.get_link_cart().click()
-        print("Click Link Cart")
+    def input_name(self, name):
+        self.get_name_locator().send_keys(name)
+        print(f"Input Name = {name}")
 
-    def click_link_laptops(self):
-        self.get_link_laptops().click()
-        print("Click Link Laptops")
+    def input_country(self, country):
+        self.get_country_locator().send_keys(country)
+        print(f"Input Country = {country}")
 
-    def click_product_1(self):
-        self.get_select_product_1().click()
-        print("Click Link Product 1, Sony vaio i5")
+    def input_city(self, city):
+        self.get_city_locator().send_keys(city)
+        print(f"Input City = {city}")
 
-    def click_product_2(self):
-        self.get_select_product_2().click()
-        print("Click Link Product 2, MacBook Pro")
+    def input_credit_card(self, credit_card):
+        self.get_credit_card_locator().send_keys(credit_card)
+        print(f"Input Credit Card = {credit_card}")
 
-    def click_product_3(self):
-        self.get_select_product_3().click()
-        print("Click Link Product 3, 2017 Dell 15.6 Inch")
+    def input_month(self, month):
+        self.get_month_locator().send_keys(month)
+        print(f"Input Month = {month}")
 
-    def click_add_to_cart_product_1(self):
-        self.get_add_to_cart_product_1().click()
-        print("Click Button Add To Card Product 1")
+    def input_year(self, year):
+        self.get_year_locator().send_keys(year)
+        print(f"Input Year = {year}")
 
-    def click_add_to_cart_product_2(self):
-        self.get_add_to_cart_product_2().click()
-        print("Click Button Add To Card Product 2")
-
-    def click_add_to_cart_product_3(self):
-        self.get_add_to_cart_product_3().click()
-        print("Click Button Add To Card Product 3")
+    def click_btn_purchase(self):
+        self.get_btn_purchase().click()
+        print("Click Button Purchase")
 
 
     # Methods
-    def select_proucts(self):
+    def proucts_place_order(self):
         # self.driver.get(self.url)
         # self.driver.maximize_window()
         # print("---> Start Test Select Product")
         self.start_test()
         self.get_current_url()
-        self.click_link_laptops()
-        self.click_product_1()
-        self.get_current_url()
-        self.click_add_to_cart_product_1()
-        self.click_link_navbar()
-        self.click_link_laptops()
-        self.click_product_2()
-        self.get_current_url()
-        self.click_add_to_cart_product_2()
-        self.click_link_navbar()
-        self.click_link_laptops()
-        self.click_product_3()
-        self.get_current_url()
-        self.click_add_to_cart_product_3()
-        self.click_link_navbar()
-        self.click_link_cart()
+        self.click_btn_place_order()
+        self.input_name(self.name)
+        self.input_country(self.country)
+        self.input_city(self.city)
+        self.input_credit_card(self.credit_card)
+        self.input_month(self.month_m)
+        self.input_year(self.year_y)
+        self.click_btn_purchase()
+
         time.sleep(5)
 
 

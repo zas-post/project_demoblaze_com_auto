@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,8 +9,6 @@ from base.base_class import BaseClass
 
 class MainPage(BaseClass):
 
-    # user_name = "222"
-    # password = "222"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -16,6 +16,9 @@ class MainPage(BaseClass):
 
 
     # Locators
+    link_navbar = "//a[@class='navbar-brand']"
+    link_cart = "//a[@id='cartur']"
+
     link_phone = "//a[contains( text(),'Phones')]"
     link_laptops = "//a[contains(text(),'Laptops')]"
     link_monitor = "//a[contains( text(),'Monitors')]"
@@ -30,35 +33,50 @@ class MainPage(BaseClass):
 
 
     # Getter
+
+    def get_link_navbar(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_navbar)))
+
+    def get_link_cart(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_cart)))
+
     def get_link_phone(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_phone)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_phone)))
 
     def get_link_laptops(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_laptops)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_laptops)))
 
     def get_link_monitor(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_monitor)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_monitor)))
 
     def get_select_product_1(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_1)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_1)))
 
     def get_select_product_2(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_2)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_2)))
 
     def get_select_product_3(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_3)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_3)))
 
     def get_add_to_cart_product_1(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.add_to_cart_product_1)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_1)))
 
     def get_add_to_cart_product_2(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.add_to_cart_product_2)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_2)))
 
     def get_add_to_cart_product_3(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.add_to_cart_product_3)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_3)))
 
 
     # Actions
+    def click_link_navbar(self):
+        self.get_link_navbar().click()
+        print("Click Link Navbar Brand")
+
+    def click_link_cart(self):
+        self.get_link_cart().click()
+        print("Click Link Cart")
+
     def click_link_laptops(self):
         self.get_link_laptops().click()
         print("Click Link Laptops")
@@ -88,21 +106,30 @@ class MainPage(BaseClass):
         print("Click Button Add To Card Product 3")
 
 
-
     # Methods
     def select_proucts(self):
         # self.driver.get(self.url)
         # self.driver.maximize_window()
+        # print("---> Start Test Select Product")
+        self.start_test()
         self.get_current_url()
         self.click_link_laptops()
         self.click_product_1()
+        self.get_current_url()
         self.click_add_to_cart_product_1()
+        self.click_link_navbar()
         self.click_link_laptops()
         self.click_product_2()
+        self.get_current_url()
         self.click_add_to_cart_product_2()
+        self.click_link_navbar()
         self.click_link_laptops()
         self.click_product_3()
+        self.get_current_url()
         self.click_add_to_cart_product_3()
+        self.click_link_navbar()
+        self.click_link_cart()
+        time.sleep(5)
 
 
         # self.click_link_sign_up(self.link_log_in)

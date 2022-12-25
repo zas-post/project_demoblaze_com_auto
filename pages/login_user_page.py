@@ -66,7 +66,7 @@ class LoginPage(BaseClass):
         self.input_user_name(self.user_name)
         self.input_password(self.password)
         self.click_button_sign_up(self.button_log_in)
-        self.assert_login(self.get_current_login(),"Welcome 222")
+        self.assert_login(self.get_current_login(), "Welcome 222")
 
         # alert = driver.switch_to_alert()
         # alert.send_keys(Keys.ESCAPE)

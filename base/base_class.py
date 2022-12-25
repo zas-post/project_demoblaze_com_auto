@@ -17,3 +17,9 @@ class BaseClass:
         value_current_login = word.text
         assert value_current_login == result
         print(f"Entered Valid User ---> {value_current_login}")
+
+    def start_test(self):
+        print("---> Start Test")
+
+    # def close_alert_page(self):
+    #     alert = self.driver.sw

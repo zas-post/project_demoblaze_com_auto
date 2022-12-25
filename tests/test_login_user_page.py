@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from pages.cart_page import CartPage
 from pages.login_user_page import LoginPage
 from pages.main_page import MainPage
 
@@ -22,6 +23,8 @@ def test_login_user():
     login.authorization()
     mp = MainPage(driver)
     mp.select_proucts()
+    cp = CartPage(driver)
+    cp.proucts_place_order()
 
 
     # select_product = WebDriverWait(driver,30).until(EC.element_to_be_clickable((By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")))
