@@ -2,4 +2,4 @@
 .pytest_cache
 venv
 screenshot/*
-base/__pycache__/
+.base/__pycache__/
