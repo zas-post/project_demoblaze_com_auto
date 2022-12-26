@@ -13,7 +13,7 @@ class CartPage(BaseClass):
     country = "RU"
     city = "Moscow"
     credit_card = "2025234165517564"
-    mmonth = "Januar"
+    mmonth = "07"
     yyear = "2030"
 
 
@@ -24,7 +24,7 @@ class CartPage(BaseClass):
 
     # Locators
     btn_place_order = "//button[@class='btn btn-success']"
-    btn_purchase = "//button[@class='btn btn-primary']"
+    btn_purchase = "//button[contains( text(),'Purchase')]"
 
     name_locator = "//input[@id='name']"
     country_locator = "//input[@id='country']"
@@ -52,7 +52,7 @@ class CartPage(BaseClass):
         return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.credit_card_locator)))
 
     def get_month_locator(self):
-        return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.get_month_locator())))
+        return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.month_locator)))
 
     def get_year_locator(self):
         return WebDriverWait(self.driver,30).until(EC.element_to_be_clickable((By.XPATH,self.year_locator)))
