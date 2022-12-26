@@ -33,6 +33,8 @@ class CartPage(BaseClass):
     month_locator = "//input[@id='month']"
     year_locator = "//input[@id='year']"
 
+    end_shop = "//div[contains(@class,'sweet-alert')]//h2"
+
 
     # Getter
 
@@ -59,6 +61,9 @@ class CartPage(BaseClass):
 
     def get_btn_purchase(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.btn_purchase)))
+
+    def get_correct_shoping(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.end_shop)))
 
     # Actions
     def click_btn_place_order(self):
@@ -109,9 +114,9 @@ class CartPage(BaseClass):
         self.input_month(self.mmonth)
         self.input_year(self.yyear)
         self.click_btn_purchase()
+        self.assert_finish_shopping(self.get_correct_shoping(), "Thank you for your purchase!")
 
         time.sleep(5)
-
 
         # self.click_link_sign_up(self.link_log_in)
         # self.input_user_name(self.user_name)

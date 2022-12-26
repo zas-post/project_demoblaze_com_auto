@@ -18,6 +18,12 @@ class BaseClass:
         assert value_current_login == result
         print(f"Entered Valid User ---> {value_current_login}")
 
+    def assert_finish_shopping(self, str, end_str):
+        value_current_word = str.text
+        print(value_current_word)
+        assert value_current_word == end_str
+        print(f"Entered Valid Word ---> {value_current_word}")
+
     def start_test(self):
         print("---> Start Test")
 
