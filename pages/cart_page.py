@@ -114,6 +114,7 @@ class CartPage(BaseClass):
         self.input_month(self.mmonth)
         self.input_year(self.yyear)
         self.click_btn_purchase()
+        self.take_screenshot()
         self.assert_finish_shopping(self.get_correct_shoping(), "Thank you for your purchase!")
 
         time.sleep(5)
