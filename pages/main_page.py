@@ -122,6 +122,13 @@ class MainPage(BaseClass):
         self.get_add_to_cart_product_3().click()
         print("Click Button Add To Card Product 3")
 
+    def sum_three_prices(self):
+        value_price_1 = self.get_price_product_1().text
+        value_price_2 = self.get_price_product_2().text
+        value_price_3 = self.get_price_product_3().text
+        value_sum_tree_price = (float(value_price_1) + float(value_price_2) + float(value_price_3))
+        return value_sum_tree_price
+
 
     # Methods
     def select_proucts(self):
@@ -143,4 +150,7 @@ class MainPage(BaseClass):
         self.click_add_to_cart_product_3()
         self.click_link_navbar()
         self.click_link_cart()
+        # self.sum_three_prices()
+        self.assert_correct_sum(self.sum_three_prices(), self.get_all_price_products())
+
         time.sleep(5)

@@ -4,3 +4,4 @@ venv
 screenshot/*
 __pycache__/
 **/__pycache__
+__pycache__

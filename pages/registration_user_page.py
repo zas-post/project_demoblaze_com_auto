@@ -11,8 +11,8 @@ class RegistrationPage(BaseClass):
 
     url = 'https://www.demoblaze.com/'
 
-    user_name = "alex"
-    password = "qw12!!"
+    user_name = "222"
+    password = "222"
 
     def __init__(self, driver):
         super().__init__(driver)
