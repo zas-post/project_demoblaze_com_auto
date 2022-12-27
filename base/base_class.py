@@ -33,3 +33,6 @@ class BaseClass:
         new_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
         name_screenshot = f'screenshot1_{new_date}.png'
         self.driver.save_screenshot('.\\screenshot\\' + name_screenshot)
+
+    # def assert_summa(self):
+    #     cp = ge

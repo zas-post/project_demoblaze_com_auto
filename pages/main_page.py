@@ -31,9 +31,11 @@ class MainPage(BaseClass):
     add_to_cart_product_2 = "//a[@onclick='addToCart(15)']"
     add_to_cart_product_3 = "//a[@onclick='addToCart(13)']"
 
-    price_product_1 = "//*[@id='tbodyid']/tr[1]/td[3]"
-    price_product_2 =
-    price_product_3 =
+    price_product_1 = "//*[@id='tbodyid']/tr[2]/td[3]"
+    price_product_2 = "//*[@id='tbodyid']/tr[1]/td[3]"
+    price_product_3 = "//*[@id='tbodyid']/tr[3]/td[3]"
+
+    all_price_products = "//*[@id='totalp']"
 
 
     # Getter
@@ -71,6 +73,17 @@ class MainPage(BaseClass):
     def get_add_to_cart_product_3(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_3)))
 
+    def get_price_product_1(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.price_product_1)))
+
+    def get_price_product_2(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.price_product_2)))
+
+    def get_price_product_3(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.price_product_3)))
+
+    def get_all_price_products(self):
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.all_price_products)))
 
     # Actions
     def click_link_navbar(self):
