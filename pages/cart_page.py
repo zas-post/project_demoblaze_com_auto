@@ -1,10 +1,10 @@
 import time
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from base.base_class import BaseClass
+
+
 
 
 class CartPage(BaseClass):
@@ -16,11 +16,9 @@ class CartPage(BaseClass):
     mmonth = "07"
     yyear = "2030"
 
-
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
-
 
     # Locators
     btn_place_order = "//button[@class='btn btn-success']"
@@ -35,9 +33,7 @@ class CartPage(BaseClass):
 
     end_shop = "//div[contains(@class,'sweet-alert')]//h2"
 
-
     # Getter
-
     def get_btn_place_order(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.btn_place_order)))
 
@@ -98,12 +94,8 @@ class CartPage(BaseClass):
         self.get_btn_purchase().click()
         print("Click Button Purchase")
 
-
     # Methods
-    def proucts_place_order(self):
-        # self.driver.get(self.url)
-        # self.driver.maximize_window()
-        # print("---> Start Test Select Product")
+    def products_place_order(self):
         self.start_test()
         self.get_current_url()
         self.click_btn_place_order()
@@ -118,12 +110,3 @@ class CartPage(BaseClass):
         self.assert_finish_shopping(self.get_correct_shoping(), "Thank you for your purchase!")
 
         time.sleep(5)
-
-        # self.click_link_sign_up(self.link_log_in)
-        # self.input_user_name(self.user_name)
-        # self.input_password(self.password)
-        # self.click_button_sign_up(self.button_log_in)
-        # self.assert_login(self.get_current_login(),"Welcome 222")
-
-        # alert = driver.switch_to_alert()
-        # alert.send_keys(Keys.ESCAPE)

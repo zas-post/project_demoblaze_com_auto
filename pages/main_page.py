@@ -31,6 +31,10 @@ class MainPage(BaseClass):
     add_to_cart_product_2 = "//a[@onclick='addToCart(15)']"
     add_to_cart_product_3 = "//a[@onclick='addToCart(13)']"
 
+    price_product_1 = "//*[@id='tbodyid']/tr[1]/td[3]"
+    price_product_2 =
+    price_product_3 =
+
 
     # Getter
 
@@ -108,9 +112,6 @@ class MainPage(BaseClass):
 
     # Methods
     def select_proucts(self):
-        # self.driver.get(self.url)
-        # self.driver.maximize_window()
-        # print("---> Start Test Select Product")
         self.start_test()
         self.get_current_url()
         self.click_link_laptops()
@@ -130,13 +131,3 @@ class MainPage(BaseClass):
         self.click_link_navbar()
         self.click_link_cart()
         time.sleep(5)
-
-
-        # self.click_link_sign_up(self.link_log_in)
-        # self.input_user_name(self.user_name)
-        # self.input_password(self.password)
-        # self.click_button_sign_up(self.button_log_in)
-        # self.assert_login(self.get_current_login(),"Welcome 222")
-
-        # alert = driver.switch_to_alert()
-        # alert.send_keys(Keys.ESCAPE)
