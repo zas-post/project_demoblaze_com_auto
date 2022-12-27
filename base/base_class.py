@@ -34,8 +34,8 @@ class BaseClass:
         name_screenshot = f'screenshot1_{new_date}.png'
         self.driver.save_screenshot('.\\screenshot\\' + name_screenshot)
 
-    def assert_correct_sum(self, current_price, all_price):
+    def assert_correct_sum(self, current_price, sum_all_price):
         value_current_sum = current_price.text
         print(value_current_sum)
-        assert value_current_sum == all_price
+        assert value_current_sum == sum_all_price
         return (f"Entered Valid Word ---> {value_current_sum}")

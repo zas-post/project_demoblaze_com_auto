@@ -126,8 +126,9 @@ class MainPage(BaseClass):
         value_price_1 = self.get_price_product_1().text
         value_price_2 = self.get_price_product_2().text
         value_price_3 = self.get_price_product_3().text
-        value_sum_tree_price = (float(value_price_1) + float(value_price_2) + float(value_price_3))
-        return value_sum_tree_price
+        value_sum_tree_price = (int(value_price_1) + int(value_price_2) + int(value_price_3))
+        print(value_sum_tree_price)
+
 
 
     # Methods
@@ -151,6 +152,6 @@ class MainPage(BaseClass):
         self.click_link_navbar()
         self.click_link_cart()
         # self.sum_three_prices()
-        self.assert_correct_sum(self.sum_three_prices(), self.get_all_price_products())
+        self.assert_correct_sum(self.get_all_price_products(), self.sum_three_prices())
 
         time.sleep(5)
