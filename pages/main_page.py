@@ -14,7 +14,6 @@ class MainPage(BaseClass):
         super().__init__(driver)
         self.driver = driver
 
-
     # Locators
     link_navbar = "//a[@class='navbar-brand']"
     link_cart = "//a[@id='cartur']"
@@ -35,55 +34,55 @@ class MainPage(BaseClass):
     price_product_2 = "//*[@id='tbodyid']/tr[1]/td[3]"
     price_product_3 = "//*[@id='tbodyid']/tr[3]/td[3]"
 
-    all_price_products = "//*[@id='totalp']"
+    all_price_products = "//h3[@id='totalp']"
 
 
     # Getter
 
     def get_link_navbar(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_navbar)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_navbar)))
 
     def get_link_cart(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_cart)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_cart)))
 
     def get_link_phone(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_phone)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_phone)))
 
     def get_link_laptops(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_laptops)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_laptops)))
 
     def get_link_monitor(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.link_monitor)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.link_monitor)))
 
     def get_select_product_1(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_1)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_1)))
 
     def get_select_product_2(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_2)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_2)))
 
     def get_select_product_3(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.select_product_3)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.select_product_3)))
 
     def get_add_to_cart_product_1(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_1)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.add_to_cart_product_1)))
 
     def get_add_to_cart_product_2(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_2)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.add_to_cart_product_2)))
 
     def get_add_to_cart_product_3(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.add_to_cart_product_3)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.add_to_cart_product_3)))
 
     def get_price_product_1(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.price_product_1)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_product_1)))
 
     def get_price_product_2(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.price_product_2)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_product_2)))
 
     def get_price_product_3(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.price_product_3)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_product_3)))
 
     def get_all_price_products(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH,self.all_price_products)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.all_price_products)))
 
     # Actions
     def click_link_navbar(self):
@@ -127,9 +126,7 @@ class MainPage(BaseClass):
         value_price_2 = self.get_price_product_2().text
         value_price_3 = self.get_price_product_3().text
         value_sum_tree_price = (int(value_price_1) + int(value_price_2) + int(value_price_3))
-        print(value_sum_tree_price)
-
-
+        return value_sum_tree_price
 
     # Methods
     def select_proucts(self):
@@ -151,7 +148,6 @@ class MainPage(BaseClass):
         self.click_add_to_cart_product_3()
         self.click_link_navbar()
         self.click_link_cart()
-        # self.sum_three_prices()
         self.assert_correct_sum(self.get_all_price_products(), self.sum_three_prices())
 
         time.sleep(5)

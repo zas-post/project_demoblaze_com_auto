@@ -5,26 +5,24 @@ class BaseClass:
     def __init__(self, driver):
         self.driver = driver
 
-
     """ Method get current URL """
 
     def get_current_url(self):
         get_url = self.driver.current_url
-        return (f"Current URL = {get_url}")
-
+        print (f"Current URL = {get_url}")
 
     """ Method assert word """
 
     def assert_login(self, word, result):
         value_current_login = word.text
         assert value_current_login == result
-        return (f"Entered Valid User ---> {value_current_login}")
+        print (f"Entered Valid User ---> {value_current_login}")
 
     def assert_finish_shopping(self, str, end_str):
         value_current_word = str.text
         print(value_current_word)
         assert value_current_word == end_str
-        return (f"Entered Valid Word ---> {value_current_word}")
+        print (f"Entered Valid Word ---> {value_current_word}")
 
     def start_test(self):
         return ("---> Start Test")
@@ -35,7 +33,6 @@ class BaseClass:
         self.driver.save_screenshot('.\\screenshot\\' + name_screenshot)
 
     def assert_correct_sum(self, current_price, sum_all_price):
-        value_current_sum = current_price.text
-        print(value_current_sum)
+        value_current_sum = int(current_price.text)
         assert value_current_sum == sum_all_price
-        return (f"Entered Valid Word ---> {value_current_sum}")
+        print (f"Entered Valid Word ---> {value_current_sum}")
