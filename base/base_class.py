@@ -29,7 +29,7 @@ class BaseClass:
 
     def take_screenshot(self):
         new_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
-        name_screenshot = f'screenshot1_{new_date}.png'
+        name_screenshot = f'screenshot_{new_date}.png'
         self.driver.save_screenshot('.\\screenshot\\' + name_screenshot)
 
     def assert_correct_sum(self, current_price, sum_all_price):
