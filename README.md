@@ -6,3 +6,14 @@ ____
 ```python
 python -m pytest -s -v # Запуск теста
 ```
+
+
+
+
+
+
+
+
+
+
+![](https://img.shields.io/github/followers/zas-post?color=green&logoColor=grey&style=flat-square)
